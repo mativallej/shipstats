@@ -1,0 +1,44 @@
+{
+  "period": "01-31 mar 2026",
+  "hero_metric": {
+    "name": "Noches reservadas",
+    "value": 12480630,
+    "delta_pct": 22.7,
+    "delta_label": "vs. feb 2026"
+  },
+  "support_metrics": [
+    { "name": "Anfitriones activos", "value": 4128500 },
+    { "name": "Países con listings", "value": 192 },
+    { "name": "ADR promedio (USD)", "value": "162,40" }
+  ],
+  "cumulative": {
+    "previous_total": 28140880,
+    "current_total": 40621510,
+    "label": "Noches reservadas YTD"
+  },
+  "breakdown": [
+    { "name": "Apartamentos enteros", "value": 6840200 },
+    { "name": "Casas enteras", "value": 3120480 },
+    { "name": "Habitaciones privadas", "value": 1685400 },
+    { "name": "Cabañas y rurales", "value": 520310 },
+    { "name": "Estancias únicas (Luxe)", "value": 314240 }
+  ],
+  "daily_series": [
+    { "day": "01 mar", "value": 348900 },
+    { "day": "08 mar", "value": 376200 },
+    { "day": "15 mar", "value": 401650 },
+    { "day": "22 mar", "value": 462310 },
+    { "day": "29 mar", "value": 538720 }
+  ],
+  "traffic": {
+    "landing_visits": 24380000,
+    "signup_conversion_pct": 6.4,
+    "new_signups": 1560320,
+    "channels": [
+      { "name": "Orgánico", "pct": 48 },
+      { "name": "Paid Social", "pct": 22 },
+      { "name": "Referral", "pct": 18 },
+      { "name": "Direct", "pct": 12 }
+    ]
+  }
+}

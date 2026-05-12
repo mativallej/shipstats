@@ -9,7 +9,7 @@
 
 > A single prompt that turns your weekly metrics into a brand-aligned poster for X. JSON in, screenshot-ready HTML out. No install, no SDK, no API key from us.
 
-![shipstats example — Tegu weekly dashboard, May 2026](./examples/tegu-may-26.jpeg)
+![shipstats example — Airbnb monthly marketplace report, March 2026](./examples/airbnb-feb-26.jpg)
 
 ## Introduction
 
@@ -106,9 +106,14 @@ If you want a different fixed structure, edit `PROMPT.md`. The layout sketch and
 
 ## Examples
 
-| Tegu — May 2026 | Uber — March 2026 |
+| Airbnb — March 2026 | Uber — March 2026 |
 |---|---|
-| ![Tegu weekly dashboard, May 2026](./examples/tegu-may-26.jpeg) | ![Uber monthly dashboard, March 2026](./examples/uber-march-26.jpg) |
+| ![Airbnb monthly marketplace report, March 2026](./examples/airbnb-feb-26.jpg) | ![Uber monthly dashboard, March 2026](./examples/uber-march-26.jpg) |
+
+Design system references used in these examples:
+
+- [Airbnb DESIGN.md](https://getdesign.md/airbnb/design-md)
+- [Uber DESIGN.md](https://getdesign.md/uber/design-md)
 
 PRs welcome with your own.
 

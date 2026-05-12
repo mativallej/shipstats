@@ -1,0 +1,44 @@
+{
+  "period": "01-30 abr 2026",
+  "hero_metric": {
+    "name": "Nuevos viajes",
+    "value": 7842150,
+    "delta_pct": 18.3,
+    "delta_label": "vs. mar 2026"
+  },
+  "support_metrics": [
+    { "name": "Conductores activos", "value": 94280 },
+    { "name": "Ciudades operativas", "value": 148 },
+    { "name": "Tiempo prom. de espera", "value": "3:28 min" }
+  ],
+  "cumulative": {
+    "previous_total": 30297293,
+    "current_total": 38139443,
+    "label": "Viajes acumulados YTD"
+  },
+  "breakdown": [
+    { "name": "UberX", "value": 4350000 },
+    { "name": "Uber Comfort", "value": 1648850 },
+    { "name": "Uber Pool", "value": 925370 },
+    { "name": "Uber Black", "value": 605420 },
+    { "name": "Uber XL", "value": 312510 }
+  ],
+  "daily_series": [
+    { "day": "01 abr", "value": 248100 },
+    { "day": "08 abr", "value": 261400 },
+    { "day": "15 abr", "value": 273800 },
+    { "day": "22 abr", "value": 318750 },
+    { "day": "29 abr", "value": 412600 }
+  ],
+  "traffic": {
+    "landing_visits": 18450000,
+    "signup_conversion_pct": 7.2,
+    "new_signups": 1328400,
+    "channels": [
+      { "name": "Orgánico", "pct": 44 },
+      { "name": "Paid Social", "pct": 26 },
+      { "name": "Referral", "pct": 19 },
+      { "name": "Direct", "pct": 11 }
+    ]
+  }
+}
