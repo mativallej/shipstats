@@ -17,6 +17,12 @@ Ask the user for these if missing. Do not fill placeholders — ask.
 - **logo** — optional file path (PNG/JPG/WebP). If provided, run the logo prep script (see below) and embed the returned base64 string. If empty, default to a typographic wordmark in sans extrabold.
 - **context** — period covered, key events, tone (celebratory/sober/educational), output language, number format (e.g. `"1,234.56"` US, `"1.234,56"` EU, `"1.234"` AR), date format. If empty, ask for output language and number format.
 
+When generating, verify locale consistency end-to-end:
+- (a) thousands and decimal separators match across hero, support, breakdown and chart labels
+- (b) date format including month casing and abbreviation is identical everywhere
+- (c) currency placement and symbol match (e.g. `USD 8.420` vs `$8.420` — pick one)
+- (d) negative-delta sign convention is consistent (`-12,4%` vs `▼ 12,4%`)
+
 If `data` or `design_system` are empty or missing minimum fields (`period` + `hero_metric.value` + at least 1 breakdown item), ask the user for the missing pieces before generating.
 
 ## Logo preparation
@@ -42,6 +48,8 @@ Layout budget pass: before writing the HTML, list each planned section with an e
 - Inline SVGs with `width: 100%` derive height from the viewBox aspect ratio. Use flat viewBoxes (minimum ratio 3:1, e.g. 520x140) for small charts, or set a fixed height in CSS. Never assume an SVG will "adapt" to the available space — it takes what it asks for.
 - Captions with `max-width` smaller than the card width wrap to multiple lines. Reserve space for the worst case (3 lines) or trim the text.
 - Design system tokens via CSS variables in `:root`. Zero hardcoded hex in `style=""`. Zero invented gradients — use only the ones named in the design system.
+- **Inline SVG color tokens**: CSS vars do not resolve inside SVG attributes like `fill="..."` or `stop-color="..."`. Use `style="fill: var(--c-x)"` to reference tokens. Bare hex inside SVG attributes is acceptable only when that exact hex is also defined as a CSS var in `:root` and used in CSS elsewhere — the SVG hex is a mirror, never a new value.
+- **Derived gradient fallback**: if the design system has no named gradient, derive ONE as `linear-gradient(135deg, <primary> 0%, <primary-active or primary-700> 100%)`, declare it in `:root` as `--g-brand`, and declare it in `<flags>`. Use this single gradient for both hero card background and progress bars.
 - Typography, spacing, radius, shadows: ONLY from the design system. If a needed token is missing, fall back to the closest value in the defined scale and declare it in `<flags>`.
 - Charts as inline SVG with `<defs>` for gradients and filters. No chart libraries.
 - Numbers: only those present in `data`. Derived numbers (conversion %, ratios) only if the math is verifiable; otherwise omit.
@@ -65,9 +73,52 @@ Hero metric font-size: range 72-96px. Larger only if the vertical budget allows 
 
 Hero card vertical padding: 2xl in normal budget, 3xl only if there is leftover height.
 
+**Eyebrow default token** (use if the design system doesn't define one): `11px / weight 600 / 0.6px letter-spacing / uppercase / mono`. If the design system has no mono family, fall back to `'JetBrains Mono', ui-monospace, SFMono-Regular, monospace` and declare it in `<flags>`.
+
+## Auto-scale
+
+The canvas must scale down to fit the viewport while keeping its aspect ratio. Use this exact pattern — naive flex centering breaks in iframe contexts (claude.ai preview, embeds) because `min-height: 100vh` lets the body grow to contain the unscaled 1200px canvas, pushing the visual center outside the visible viewport.
+
+```css
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+.canvas-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1080px;
+  height: 1200px;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(var(--scale, 1));
+}
+```
+
+```js
+function scaleCanvas() {
+  var pad = 24;
+  var sx = (window.innerWidth  - pad * 2) / 1080;
+  var sy = (window.innerHeight - pad * 2) / 1200;
+  var s = Math.min(sx, sy, 1); // never scale up
+  document.getElementById('canvas-wrap').style.setProperty('--scale', s);
+}
+addEventListener('resize', scaleCanvas);
+addEventListener('load', scaleCanvas);
+scaleCanvas();
+```
+
+Key invariants:
+- Body is exactly viewport-sized — never `min-height`.
+- The wrap is taken out of flow with `position: absolute` so it cannot push the body taller.
+- Centering and scaling travel in the same `transform` via a CSS variable; the JS only updates the scalar, never the translate.
+
 ## Output
 
-1. Write the HTML to `./shipstats-poster.html` in the user's current working directory (or a path the user specifies).
+1. Write the HTML to `./shipstats-poster.html` in the user's current working directory (or a path the user specifies). **Exception**: if running inside a Claude environment where `/mnt/user-data/outputs/` exists, write there instead — the user accesses the file via the file-sharing UI.
 2. Print the path so the user can open it.
 3. Then in chat, with no preamble:
 
