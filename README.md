@@ -1,11 +1,11 @@
 # shipstats — Brand-Aligned Metric Posters for X
 
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/mativallej_?style=social)](https://x.com/mativallej_)
-[![GitHub top language](https://img.shields.io/github/languages/top/matiasvallejosdev/shipstats?color=1081c2)](https://github.com/matiasvallejosdev/shipstats)
-![License](https://img.shields.io/github/license/matiasvallejosdev/shipstats?label=license&logo=github&color=f80&logoColor=fff)
-![Forks](https://img.shields.io/github/forks/matiasvallejosdev/shipstats.svg)
-![Stars](https://img.shields.io/github/stars/matiasvallejosdev/shipstats.svg)
-![Watchers](https://img.shields.io/github/watchers/matiasvallejosdev/shipstats.svg)
+[![GitHub top language](https://img.shields.io/github/languages/top/mativallej/shipstats?color=1081c2)](https://github.com/mativallej/shipstats)
+![License](https://img.shields.io/github/license/mativallej/shipstats?label=license&logo=github&color=f80&logoColor=fff)
+![Forks](https://img.shields.io/github/forks/mativallej/shipstats.svg)
+![Stars](https://img.shields.io/github/stars/mativallej/shipstats.svg)
+![Watchers](https://img.shields.io/github/watchers/mativallej/shipstats.svg)
 
 > A single prompt that turns your weekly metrics into a brand-aligned poster for X. JSON in, screenshot-ready HTML out. No install, no SDK, no API key from us.
 
