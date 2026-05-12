@@ -2,7 +2,7 @@
   "name": "shipstats",
   "owner": {
     "name": "Matias Vallejos",
-    "url": "https://x.com/mativallej_"
+    "url": "https://matiasvallejos.com"
   },
   "description": "Brand-aligned weekly stat posters from metrics JSON + design system. Self-contained HTML, screenshot-ready for X.",
   "plugins": [

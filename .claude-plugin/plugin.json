@@ -4,7 +4,7 @@
   "description": "Generate brand-aligned weekly stat posters from metrics JSON + design system. Self-contained HTML, screenshot-ready for X.",
   "author": {
     "name": "Matias Vallejos",
-    "url": "https://x.com/mativallej_"
+    "url": "https://matiasvallejos.com"
   },
   "homepage": "https://github.com/mativallej/shipstats",
   "repository": "https://github.com/mativallej/shipstats",
