@@ -45,9 +45,12 @@ If you use [Claude Code](https://claude.com/claude-code), shipstats ships as a p
 
    Or upload to **claude.ai** (Settings → Capabilities → Skills, Pro+ plans):
 
-   ```bash
-   cd skills && zip -r shipstats-skill.zip shipstats
-   ```
+   - **Pre-built zip**: [download `shipstats-skill.zip`](https://drive.google.com/drive/folders/1rmhxaErPVagg_4wLgRcNqoRnXoH2R1Xd?usp=sharing)
+   - **Or build it yourself**:
+
+     ```bash
+     cd skills && zip -r shipstats-skill.zip shipstats
+     ```
 
    Then upload `shipstats-skill.zip` in the web UI.
 
