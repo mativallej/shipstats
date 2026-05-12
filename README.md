@@ -39,8 +39,17 @@ If you use [Claude Code](https://claude.com/claude-code), shipstats ships as a p
 1. **Install the plugin**
 
    ```bash
-   /plugin install mativallej/shipstats
+   /plugin marketplace add mativallej/shipstats
+   /plugin install shipstats
    ```
+
+   Or upload to **claude.ai** (Settings → Capabilities → Skills, Pro+ plans):
+
+   ```bash
+   cd skills && zip -r shipstats-skill.zip shipstats
+   ```
+
+   Then upload `shipstats-skill.zip` in the web UI.
 
 2. **Ask Claude for a poster**
 
