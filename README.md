@@ -30,13 +30,31 @@ The structure is fixed on purpose: every week's poster feels like part of the sa
 
 ## Quick Start
 
-### Prerequisites
+Two paths, same output. Pick one.
 
-- An LLM that handles long context. **Recommended: [Claude Opus 4.7](https://www.anthropic.com/claude)** — it follows the layout budget pass cleanly and respects design system tokens without inventing gradients.
-- Your weekly metrics in JSON or prose.
-- A design system spec (optional — [getdesign.md](https://getdesign.md/) has free ones, or pass any reference).
+### Path A — Claude Code Skill (recommended)
 
-### Steps
+If you use [Claude Code](https://claude.com/claude-code), shipstats ships as a plugin with a Skill that auto-invokes when you ask for a weekly recap.
+
+1. **Install the plugin**
+
+   ```bash
+   /plugin install mativallej/shipstats
+   ```
+
+2. **Ask Claude for a poster**
+
+   > "Armame el poster semanal con estas métricas: …"
+
+   The Skill auto-loads, asks for any missing input (design system, locale), runs the bundled logo prep script (Python: resize to 128×128 WebP + base64), and writes `shipstats-poster.html` in the current directory.
+
+3. **Screenshot and post.**
+
+Templates shipped with the Skill: [`design-system.md`](./skills/shipstats/templates/design-system.md) (fallback tokens) and [`sample-metrics.json`](./skills/shipstats/templates/sample-metrics.json) (data shape).
+
+### Path B — Plain prompt (any LLM)
+
+Works with Claude, GPT, Gemini, or anything that handles long context. **Recommended: [Claude Opus 4.7](https://www.anthropic.com/claude)** — it follows the layout budget pass cleanly and respects design system tokens without inventing gradients.
 
 1. **Copy the prompt**
 
@@ -52,11 +70,7 @@ The structure is fixed on purpose: every week's poster feels like part of the sa
 
    Paste in chat, attach the logo if you have one, send. Save the returned HTML as `poster.html`.
 
-4. **Screenshot and post**
-
-   Open the file in a browser, screenshot at any zoom level, tweet it.
-
-That's the whole flow.
+4. **Screenshot and post.**
 
 ## What You Bring
 

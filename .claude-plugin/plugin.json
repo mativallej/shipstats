@@ -1,0 +1,13 @@
+{
+  "name": "shipstats",
+  "version": "0.1.0",
+  "description": "Generate brand-aligned weekly stat posters from metrics JSON + design system. Self-contained HTML, screenshot-ready for X.",
+  "author": {
+    "name": "Matias Vallejos",
+    "url": "https://x.com/mativallej_"
+  },
+  "homepage": "https://github.com/mativallej/shipstats",
+  "repository": "https://github.com/mativallej/shipstats",
+  "license": "MIT",
+  "keywords": ["dashboard", "metrics", "html", "social", "design-system", "poster"]
+}
