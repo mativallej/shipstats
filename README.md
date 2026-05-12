@@ -9,7 +9,7 @@
 
 > A single prompt that turns your weekly metrics into a brand-aligned poster for X. JSON in, screenshot-ready HTML out. No install, no SDK, no API key from us.
 
-![shipstats example — Airbnb monthly marketplace report, March 2026](./examples/airbnb-feb-26.jpg)
+![shipstats example — Tegu weekly dashboard, May 2026](./examples/tegu-may-26.jpeg)
 
 ## Introduction
 
